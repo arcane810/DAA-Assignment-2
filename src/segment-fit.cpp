@@ -21,10 +21,10 @@ Line fitLine(std::vector<Point> &points, int l, int r) {
     return Line(a, b);
 }
 
-long double sq_distance(Point a, Line line) {
-    long double num = (line.a * a.x) - a.y + line.b;
-    long double den = (line.a * line.a) + 1;
-    return (num * num) / (den);
+long double sq_distance(Point p, Line line) {
+    long double pred_y = line.a * p.x + line.b;
+    long double diff = p.y - pred_y;
+    return diff * diff;
 }
 
 long double fit_error(std::vector<Point> &points, Line line, int l, int r) {
@@ -36,8 +36,9 @@ long double fit_error(std::vector<Point> &points, Line line, int l, int r) {
     return error;
 }
 
-std::pair<long double, std::vector<Line>> segment_fit(std::vector<Point> points,
-                                                      long double penalty) {
+std::pair<long double,
+          std::vector<std::pair<Line, std::pair<long double, long double>>>>
+segment_fit(std::vector<Point> points, long double penalty) {
     std::sort(points.begin(), points.end());
     int n = points.size();
     std::vector<std::vector<Line>> pair_lines(n, std::vector<Line>(n, Line()));
@@ -52,7 +53,7 @@ std::pair<long double, std::vector<Line>> segment_fit(std::vector<Point> points,
             std::cout << i << " " << j << " " << pair_errors[i][j] << "\n";
         }
     }
-    std::vector<long double> opt(n, 1);
+    std::vector<long double> opt(n, penalty);
     std::vector<long double> parent(n, 0);
     for (int j = 1; j < n; j++) {
         parent[j] = j;
@@ -76,10 +77,11 @@ std::pair<long double, std::vector<Line>> segment_fit(std::vector<Point> points,
         std::cout << op << " ";
     }
     std::cout << "\n";
-    std::vector<Line> segments;
+    std::vector<std::pair<Line, std::pair<long double, long double>>> segments;
     int st = n - 1;
     while (st >= 0) {
-        segments.push_back(pair_lines[parent[st]][st]);
+        segments.push_back(
+            {pair_lines[parent[st]][st], {points[parent[st]].x, points[st].x}});
         st = parent[st] - 1;
     }
     reverse(segments.begin(), segments.end());

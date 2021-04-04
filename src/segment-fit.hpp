@@ -30,5 +30,6 @@ class Line {
  * A function which takes in a vector of points and returns the segments of best
  * fit for it.
  */
-std::pair<long double, std::vector<Line>> segment_fit(std::vector<Point> points,
-                                                      long double penalty);
+std::pair<long double,
+          std::vector<std::pair<Line, std::pair<long double, long double>>>>
+segment_fit(std::vector<Point> points, long double penalty);

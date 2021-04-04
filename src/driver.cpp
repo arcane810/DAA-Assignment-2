@@ -22,11 +22,13 @@ int main(int argc, char *argv[]) {
         fin >> pt.y;
     }
 
-    pair<long double, vector<Line>> ans = segment_fit(points, c);
+    pair<long double, vector<pair<Line, pair<long double, long double>>>> ans =
+        segment_fit(points, c);
     fout << ans.first << "\n";
     fout << ans.second.size() << "\n";
-    for (Line l : ans.second) {
-        fout << l.a << " " << l.b << "\n";
+    for (auto it : ans.second) {
+        fout << it.first.a << " " << it.first.b << " " << it.second.first << " "
+             << it.second.second << "\n";
     }
 
     return 0;
