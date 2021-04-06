@@ -1,0 +1,73 @@
+\hypertarget{segment-fit_8cpp}{}\doxysection{src/segment-\/fit.cpp File Reference}
+\label{segment-fit_8cpp}\index{src/segment-\/fit.cpp@{src/segment-\/fit.cpp}}
+{\ttfamily \#include \char`\"{}segment-\/fit.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{segment-fit_8cpp_a46e929f53aca875ba10ba15507c7e7dd}\label{segment-fit_8cpp_a46e929f53aca875ba10ba15507c7e7dd}} 
+\mbox{\hyperlink{class_line}{Line}} {\bfseries fit\+Line} (std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$ \&points, int l, int r)
+\item 
+long double \mbox{\hyperlink{segment-fit_8cpp_af25588884940aecc1ac80eb1fe246804}{sq\+\_\+distance}} (\mbox{\hyperlink{class_point}{Point}} p, \mbox{\hyperlink{class_line}{Line}} line)
+\item 
+long double \mbox{\hyperlink{segment-fit_8cpp_ad17af5fe3232a6d65373a21f8e4e1497}{fit\+\_\+error}} (std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$ \&points, \mbox{\hyperlink{class_line}{Line}} line, int l, int r)
+\item 
+std\+::pair$<$ long double, std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_line}{Line}}, std\+::pair$<$ long double, long double $>$ $>$ $>$ $>$ \mbox{\hyperlink{segment-fit_8cpp_aa3146252470646e78564f2ea981fd0eb}{segment\+\_\+fit}} (std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$ points, long double penalty)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{segment-fit_8cpp_ad17af5fe3232a6d65373a21f8e4e1497}\label{segment-fit_8cpp_ad17af5fe3232a6d65373a21f8e4e1497}} 
+\index{segment-\/fit.cpp@{segment-\/fit.cpp}!fit\_error@{fit\_error}}
+\index{fit\_error@{fit\_error}!segment-\/fit.cpp@{segment-\/fit.cpp}}
+\doxysubsubsection{\texorpdfstring{fit\_error()}{fit\_error()}}
+{\footnotesize\ttfamily long double fit\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$ \&}]{points,  }\item[{\mbox{\hyperlink{class_line}{Line}}}]{line,  }\item[{int}]{l,  }\item[{int}]{r }\end{DoxyParamCaption})}
+
+Calculates the square distance from a line at an x coordinate 
+\begin{DoxyParams}{Parameters}
+{\em points} & The vector of all points \\
+\hline
+{\em line} & The line from which the error is to be found \\
+\hline
+{\em l} & The left index of point for this segment \\
+\hline
+{\em r} & The right index of point for this segment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fit error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{segment-fit_8cpp_aa3146252470646e78564f2ea981fd0eb}\label{segment-fit_8cpp_aa3146252470646e78564f2ea981fd0eb}} 
+\index{segment-\/fit.cpp@{segment-\/fit.cpp}!segment\_fit@{segment\_fit}}
+\index{segment\_fit@{segment\_fit}!segment-\/fit.cpp@{segment-\/fit.cpp}}
+\doxysubsubsection{\texorpdfstring{segment\_fit()}{segment\_fit()}}
+{\footnotesize\ttfamily std\+::pair$<$long double, std\+::vector$<$std\+::pair$<$\mbox{\hyperlink{class_line}{Line}}, std\+::pair$<$long double, long double$>$ $>$ $>$ $>$ segment\+\_\+fit (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$}]{points,  }\item[{long double}]{penalty }\end{DoxyParamCaption})}
+
+A function which takes in a vector of points and returns the segments of best fit for it. 
+\begin{DoxyParams}{Parameters}
+{\em points} & the set of points for which the segments are to be found \\
+\hline
+{\em penalty} & the penalty for new segments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns error and a vector of \mbox{\hyperlink{class_line}{Line}} and starting, ending point of segments 
+\end{DoxyReturn}
+\mbox{\Hypertarget{segment-fit_8cpp_af25588884940aecc1ac80eb1fe246804}\label{segment-fit_8cpp_af25588884940aecc1ac80eb1fe246804}} 
+\index{segment-\/fit.cpp@{segment-\/fit.cpp}!sq\_distance@{sq\_distance}}
+\index{sq\_distance@{sq\_distance}!segment-\/fit.cpp@{segment-\/fit.cpp}}
+\doxysubsubsection{\texorpdfstring{sq\_distance()}{sq\_distance()}}
+{\footnotesize\ttfamily long double sq\+\_\+distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_point}{Point}}}]{p,  }\item[{\mbox{\hyperlink{class_line}{Line}}}]{line }\end{DoxyParamCaption})}
+
+Calculates the square distance from a line at an x coordinate 
+\begin{DoxyParams}{Parameters}
+{\em p} & The point \\
+\hline
+{\em line} & The line from which the distance is to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The square distance 
+\end{DoxyReturn}

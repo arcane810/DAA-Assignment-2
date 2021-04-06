@@ -1,0 +1,33 @@
+\hypertarget{segment-fit_8hpp}{}\doxysection{src/segment-\/fit.hpp File Reference}
+\label{segment-fit_8hpp}\index{src/segment-\/fit.hpp@{src/segment-\/fit.hpp}}
+{\ttfamily \#include \char`\"{}utils.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_line}{Line}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ long double, std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_line}{Line}}, std\+::pair$<$ long double, long double $>$ $>$ $>$ $>$ \mbox{\hyperlink{segment-fit_8hpp_aa3146252470646e78564f2ea981fd0eb}{segment\+\_\+fit}} (std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$ points, long double penalty)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{segment-fit_8hpp_aa3146252470646e78564f2ea981fd0eb}\label{segment-fit_8hpp_aa3146252470646e78564f2ea981fd0eb}} 
+\index{segment-\/fit.hpp@{segment-\/fit.hpp}!segment\_fit@{segment\_fit}}
+\index{segment\_fit@{segment\_fit}!segment-\/fit.hpp@{segment-\/fit.hpp}}
+\doxysubsubsection{\texorpdfstring{segment\_fit()}{segment\_fit()}}
+{\footnotesize\ttfamily std\+::pair$<$long double, std\+::vector$<$std\+::pair$<$\mbox{\hyperlink{class_line}{Line}}, std\+::pair$<$long double, long double$>$ $>$ $>$ $>$ segment\+\_\+fit (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$}]{points,  }\item[{long double}]{penalty }\end{DoxyParamCaption})}
+
+A function which takes in a vector of points and returns the segments of best fit for it. 
+\begin{DoxyParams}{Parameters}
+{\em points} & the set of points for which the segments are to be found \\
+\hline
+{\em penalty} & the penalty for new segments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns error and a vector of \mbox{\hyperlink{class_line}{Line}} and starting, ending point of segments 
+\end{DoxyReturn}

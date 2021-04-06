@@ -29,6 +29,10 @@ class Line {
 /**
  * A function which takes in a vector of points and returns the segments of best
  * fit for it.
+ * @param points the set of points for which the segments are to be found
+ * @param penalty the penalty for new segments
+ * @return returns error and a vector of Line and starting, ending point of
+ * segments
  */
 std::pair<long double,
           std::vector<std::pair<Line, std::pair<long double, long double>>>>

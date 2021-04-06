@@ -20,13 +20,26 @@ Line fitLine(std::vector<Point> &points, int l, int r) {
     long double b = (syi - a * sxi) / n;
     return Line(a, b);
 }
-
+/**
+ * Calculates the square distance from a line at an x coordinate
+ * @param p The point
+ * @param line The line from which the distance is to be found
+ * @return The square distance
+ */
 long double sq_distance(Point p, Line line) {
     long double pred_y = line.a * p.x + line.b;
     long double diff = p.y - pred_y;
     return diff * diff;
 }
 
+/**
+ * Calculates the square distance from a line at an x coordinate
+ * @param points The vector of all points
+ * @param line The line from which the error is to be found
+ * @param l The left index of point for this segment
+ * @param r The right index of point for this segment
+ * @return The fit error
+ */
 long double fit_error(std::vector<Point> &points, Line line, int l, int r) {
     int n = r - l + 1;
     long double error = 0;
