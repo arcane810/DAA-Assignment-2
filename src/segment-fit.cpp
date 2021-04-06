@@ -50,7 +50,6 @@ segment_fit(std::vector<Point> points, long double penalty) {
         for (int j = i + 1; j < n; j++) {
             pair_lines[i][j] = fitLine(points, i, j);
             pair_errors[i][j] = fit_error(points, pair_lines[i][j], i, j);
-            std::cout << i << " " << j << " " << pair_errors[i][j] << "\n";
         }
     }
     std::vector<long double> opt(n, penalty);
@@ -72,11 +71,6 @@ segment_fit(std::vector<Point> points, long double penalty) {
         opt[j] = min_cost;
         parent[j] = opt_index;
     }
-    std::cout << "OPT: ";
-    for (long double op : opt) {
-        std::cout << op << " ";
-    }
-    std::cout << "\n";
     std::vector<std::pair<Line, std::pair<long double, long double>>> segments;
     int st = n - 1;
     while (st >= 0) {

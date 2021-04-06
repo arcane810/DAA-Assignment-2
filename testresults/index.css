@@ -1,0 +1,45 @@
+body {
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    margin: auto;
+}
+
+h1,
+h2,
+h3,
+p {
+    padding-left: 50px;
+}
+
+table {
+    margin-left: 50px;
+    width: 100%;
+    max-width: 720px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+th {
+    text-align: left;
+}
+
+.image-container {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+
+.test-image {
+    width: 33%;
+}

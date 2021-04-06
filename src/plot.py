@@ -14,7 +14,6 @@ with open(ifile) as f:
         x.append(x1)
         y.append(y1)
     plt.scatter(x, y, color="black")
-    # plt.savefig(ifile + ".rects.png")
 
 with open(ofile) as f:
     error = f.readline()
@@ -30,5 +29,5 @@ with open(ofile) as f:
         x.append(d)
         y.append(d * a + b)
         plt.plot(x, y)
-    # plt.savefig(ifile + ".contours.png")
-plt.show()
+# plt.show()
+plt.savefig(ifile + ".png")
